@@ -1,11 +1,10 @@
 package Day1;
 
-public class first {
+public class DisplayMassage {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Helo world");
-
+		System.out.println("Welcome to Java");
 	}
 
 }
