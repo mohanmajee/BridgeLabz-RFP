@@ -1,0 +1,153 @@
+mysql> create database payroll_service;
+
+
+mysql> show databases;
+
+
+mysql> use payroll_service;
+
+Database changed
+
+mysql> create table employee_payroll ( id int not null auto_increment,name varchar(50) not null, salary double not null, start date not null,primary key(id));
+
+
+mysql> insert into employee_payroll (name,salary,start) value('Bill',15000.00,'2019-01-08'),('Abhi',10000.00,'2020-01-09'),('Gilchrist',20000.00,'2021-06-05');
+
+
+mysql> select * from employee_payroll;
+
+
+mysql> select salary from employee_payroll where name = 'Bill';
+
+
+mysql> select salary from employee_payroll where start between cast('2020-01-09' as date) and date (now());
+
+
+mysql> insert into employee_payroll (name,salary,start) value('Charlie',78000.00,'2018-01-09');
+
+
+mysql> select * from employee_payroll;
+
+
+mysql> alter table employee_payroll add gender char(1) after name;
+
+
+mysql> update employee_payroll set gender='M' where name = 'Bill'or name='Charlie';
+
+
+mysql> select * from employee_payroll;
+
+
+mysql> describe employee_payroll;
+
+
+mysql> select sum(salary) from employee_payroll where gender= 'M';
+
+
+mysql> update employee_payroll set gender ='F' where name='Abhi' or name='Gilchrist';
+
+
+mysql> select * from employee_payroll;
+
+
+mysql> select sum(salary) from employee_payroll where gender= 'F';
+
+
+mysql> select avg(salary) from employee_payroll where gender= 'F';
+
+
+mysql> select avg(salary) from employee_payroll where gender= 'M';
+
+
+mysql> select min(salary) from employee_payroll where gender= 'M';
+
+
+mysql> select min(salary) from employee_payroll where gender= 'F';
+
+
+mysql> select max(salary) from employee_payroll where gender= 'F';
+
+
+mysql> select max(salary) from employee_payroll where gender= 'M';
+
+
+mysql> select count(gender) from employee_payroll where gender= 'M';
+
+
+mysql> select count(gender) from employee_payroll where gender= 'F';
+
+
+mysql> select count(gender) from employee_payroll where gender= 'M' group by gender;
+
+
+mysql> select count(gender) from employee_payroll where gender= 'F' group by gender;
+
+
+mysql> select sum(salary) from employee_payroll where gender= 'F' group by gender;
+
+
+mysql> select sum(salary) from employee_payroll where gender= 'M' group by gender;
+
+
+mysql> select avg(salary) from employee_payroll where gender= 'F' group by gender;
+
+
+mysql> select avg(salary) from employee_payroll where gender= 'M' group by gender;
+
+
+mysql> select min(salary) from employee_payroll where gender= 'M' group by gender;
+
+
+mysql> select min(salary) from employee_payroll where gender= 'F' group by gender;
+
+
+mysql> select max(salary) from employee_payroll where gender= 'F' group by gender;
+
+
+mysql> select max(salary) from employee_payroll where gender= 'M' group by gender;
+
+
+mysql> ALTER TABLE employee_payroll
+    -> ADD COLUMN `phone` int  after `start`,
+    -> ADD COLUMN `address` varchar(120)  after `phone`,
+    -> ADD COLUMN `department` varchar(30) not null after `address`;
+
+mysql> select * from employee_payroll;
+
+
+mysql> update employee_payroll set gender='M' where name = 'Bill'or name='Charlie';
+
+
+mysql> select * from employee_payroll;
+
+mysql> update employee_payroll set department='physics' where id=1;
+
+
+mysql> update employee_payroll set department='math' where id=2;
+
+
+mysql> update employee_payroll set department='hindi' where id=3;
+
+
+mysql> update employee_payroll set department='english' where id=4;
+
+
+mysql> select * from employee_payroll;
+
+mysql> ALTER TABLE employee_payroll ADD COLUMN `Basic pay` double  after `department`, ADD COLUMN `deduction` double  after `Basic pay`, ADD COLUMN `Taxable pay` double;
+
+
+mysql> ALTER TABLE employee_payroll ADD COLUMN `Income Tax` double  after `Taxable Pay`, ADD COLUMN `Net Pay` double;
+
+
+mysql> select * from employee_payroll;
+
+
+insert into employee_payroll (name, gender,salary, start, phone, address, department, basic pay, deduction, taxable pay, income tax, net pay) values ('Terisa', 'F',650000.00, '2019-03-03', 'Sales and Marketing', 390000, 2000, 1000, 270, 1500);
+
+mysql> show tables;
+
+
+mysql> SELECT count(*) AS TOTALNUMBEROFTABLES
+    ->  FROM INFORMATION_SCHEMA.TABLES
+    ->    WHERE TABLE_SCHEMA = 'payroll_service';

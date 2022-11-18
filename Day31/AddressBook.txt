@@ -1,0 +1,99 @@
+
+mysql> show databases;
+
+
+mysql> create database AddressBookService;
+
+mysql> show databases;
+
+
+mysql> use AddressBookService;
+
+Database changed
+
+mysql> create table AddressBook (FirstName varchar(150) NOT NULL, lastName varchar(150) , address varchar(150), city varchar(30) , state varchar(30) , zipCode int NOT NULL , phoneNumber bigint NOT NULL , email varchar(50) );  
+
+
+mysql> insert into addressbook value ('abhishek','rajawat','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> update addressbook set address = 'KamlaNagar' where FirstName = 'abhishek';
+
+
+mysql> delete from addressbook where FirstName = 'abhishek';
+
+
+mysql> select * from addressbook where state = 'madhyaPradesh' and city = 'gwalior';
+
+
+mysql> insert into addressbook value ('abhishek','rajawat','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> select count(city) from addressbook where state = 'madhyaPradesh' and city = 'gwalior';
+
+
+mysql> select * from addressbook where city = 'gwalior' order by FirstName;
+
+
+mysql> insert into addressbook value ('sohail','kabeer','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+mysql> select FirstName from addressbook ORDER BY FirstName;
+
+
+mysql> select FirstName from addressbook ORDER BY FirstName desc;
+
+
+mysql> select FirstName from addressbook where city = 'gwalior' ORDER BY FirstName desc;
+
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName desc;
+
+
+mysql> alter table addressbook add type varchar(50) after lastName;
+
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName ;
+
+mysql> insert into addressbook value ('sohail','family','kabeer','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName desc;
+
+
+mysql> DELETE FROM addressbook where type = 'kabeer';
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName desc;
+
+
+mysql> insert into addressbook value ('sohail','kabeer','family','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> insert into addressbook value ('sohail','kabeer','friends','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName desc;
+
+
+mysql> insert into addressbook value ('abhishek','rajawat','family','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> insert into addressbook value ('abhishek','rajawat','friends','kamlaNagar', 'gwalior','madhyaPradesh',474006,9971944613,'abhishekrajawat101@gmail.com');
+
+
+mysql> select count(FirstName) from addressbook where type = 'Family' ;
+
+
+mysql> select * from addressbook where city = 'gwalior' ORDER BY FirstName ;
+
+
+mysql> SELECT * FROM addressbook;
+
+mysql> show tables;
+
+mysql> SELECT count(*) AS TOTALNUMBEROFTABLES
+    ->  FROM INFORMATION_SCHEMA.TABLES
+    ->    WHERE TABLE_SCHEMA = 'AddressBookService';
+
+
+
+ exit
